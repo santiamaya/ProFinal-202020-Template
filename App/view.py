@@ -47,7 +47,55 @@ operación seleccionada.
 # ___________________________________________________
 #  Menu principal
 # ___________________________________________________
+def printMenu():
+    print("\n")
+    print("*******************************************")
+    print("Bienvenido")
+    print("1- Cargar información de buses de singapur")
+    print("2- Consultar cantidad de taxis")
+    print("3- Consultar compañias con al menos un taxi")
+    print("4- Consultar el orden (mayor a menor) de la cantidad de taxis en las compañias")
+    print("5- Consultar el numero de compañias que más servicios prestaron")
+    print("0- Salir")
+    print("*******************************************")
+
+def optionOne():
+    print("\n Cargando información de los taxis ")
+    tipo_archivo = input(str("Ingrese qué archivo quiere cargar (small,medium o large)"))
+    cont = controller.loadTaxi(tipo_archivo)
+    print("Los archivos han sido cargados correctamente")
+    return cont 
+
+def optionTwo():
+    print("El numero total de taxis es: "+str(controller.cantidad_taxis(cont)))
+
+
 
 """
 Menu principal
 """
+
+while True:
+    printMenu()
+    inputs = input('Seleccione una opción para continuar\n>')
+
+    if int(inputs[0]) == 1:
+        cont = optionOne()
+    elif int(inputs[0]) == 2:
+        optionTwo()
+    elif int(inputs[0]) == 3:
+        controller.companias_taxis(cont)
+    elif int(inputs[0]) == 4:
+        cantidad_companias = input(str("Ingrese el numero de compañias que desea ver: "))
+        controller.orden_companias(cont,cantidad_companias)
+    elif int(inputs[0]) == 5:
+        cantidad_companias = input(str("Ingrese el numero de compañias que desea ver: "))
+        controller.orden_companias_servicio(cont,cantidad_companias)
+    else:
+        sys.exit(0)
+sys.exit(0)
+
+    
+
+
+    

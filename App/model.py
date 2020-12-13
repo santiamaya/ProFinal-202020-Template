@@ -30,6 +30,7 @@ from DISClib.ADT import list as lt
 from DISClib.DataStructures import listiterator as it
 from DISClib.Algorithms.Graphs import scc
 from DISClib.Algorithms.Graphs import dijsktra as djk
+from DISClib.Algorithms.Sorting import shellsort as sh 
 from DISClib.Utils import error as error
 assert config
 
@@ -47,6 +48,46 @@ de creacion y consulta sobre las estructuras de datos.
 # ==============================
 # Funciones de consulta
 # ==============================
+def cantidad_de_taxis(lst):
+    total = lt.size(lst)
+    return total 
+def companias_con_un_taxi(lst):
+    dict_companias = {}
+    iterator = it.newIterator(lst)
+    while it.hasNext(iterator):
+        taxi = it.next(iterator)
+        if taxi['company'] not in dict_companias:
+            dict_companias[taxi['company']] = 1 
+        else: 
+            dict_companias[taxi['company']] += 1 
+    lst_companies = lt.newList(datastructure='SINGLE_LINKED',cmpfunction=None)
+    lt.addFirst(lst_companies,dict_companias.keys())
+    companies = lt.size(lst_companies)
+    return companies
+def orden_companias(lst,cantidad_companias):
+    dict_companias = {}
+    iterator = it.newIterator(lst)
+    lista_resultado = lt.newList('SINGLE_LINKED',None)
+    while it.hasNext(iterator):
+        taxi = it.next(iterator)
+        if taxi['company'] not in dict_companias:
+            dict_companias[taxi['company']] = 1 
+        else: 
+            dict_companias[taxi['company']] += 1 
+    lst_companies = lt.newList(datastructure='SINGLE_LINKED',cmpfunction=None)
+    lt.addFirst(lst_companies,dict_companias.values())
+    sh.shellSort(lst_companies,cmp_values)
+    contador = 1
+    while contador <= cantidad_companias:
+        lt.addFirst(lista_resultado,lt.getElement(lst_companies,contador))
+        contador += 1 
+    return lista_resultado
+def orden_companias_servicio(lst,cantidad_companias):
+    respuesta = orden_companias(lst,cantidad_companias)
+    return respuesta     
+    
+
+    
 
 # ==============================
 # Funciones Helper
@@ -55,3 +96,9 @@ de creacion y consulta sobre las estructuras de datos.
 # ==============================
 # Funciones de Comparacion
 # ==============================
+
+def cmp_values(element_1,element_2):
+    if element_1 > element_2:
+        return True 
+    else:
+        return False
