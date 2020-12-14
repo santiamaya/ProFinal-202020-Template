@@ -84,13 +84,13 @@ while True:
     elif int(inputs[0]) == 2:
         optionTwo()
     elif int(inputs[0]) == 3:
-        controller.companias_taxis(cont)
+        print(controller.companias_taxis(cont))
     elif int(inputs[0]) == 4:
         cantidad_companias = input(str("Ingrese el numero de compañias que desea ver: "))
-        controller.orden_companias(cont,cantidad_companias)
+        print(controller.orden_companias(cont,cantidad_companias))
     elif int(inputs[0]) == 5:
         cantidad_companias = input(str("Ingrese el numero de compañias que desea ver: "))
-        controller.orden_companias_servicio(cont,cantidad_companias)
+        print(controller.orden_companias_servicio(cont,cantidad_companias))
     else:
         sys.exit(0)
 sys.exit(0)
