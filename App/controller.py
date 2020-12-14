@@ -69,8 +69,10 @@ def loadCSVfile(file,cmpfunction):
 def loadTaxi(tipo_archivo):
     if tipo_archivo == "small":
         lst = loadCSVfile("Docs\taxi-trips-wrvz-psew-subset-small.csv",compareTaxisIds)
+        return lst     
     elif tipo_archivo == "medium":
         lst = loadCSVfile("Docs\taxi-trips-wrvz-psew-subset-medium.csv",compareTaxisIds)
+        return lst 
     elif tipo_archivo == "large":
         lst = loadCSVfile("Docs\taxi-trips-wrvz-psew-subset-large.csv",compareTaxisIds)
         return lst 

@@ -51,7 +51,7 @@ def printMenu():
     print("\n")
     print("*******************************************")
     print("Bienvenido")
-    print("1- Cargar información de buses de singapur")
+    print("1- Cargar información de taxis")
     print("2- Consultar cantidad de taxis")
     print("3- Consultar compañias con al menos un taxi")
     print("4- Consultar el orden (mayor a menor) de la cantidad de taxis en las compañias")
